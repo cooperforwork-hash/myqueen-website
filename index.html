@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Queen Pty Ltd - Australia's Leading Asian Food Distribution Platform</title>
+    <meta name="description" content="My Queen Pty Ltd - Australia's leading Asian food distribution platform. Home of Chewy brand, now in 650+ 7-Eleven stores nationwide.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables - Brand Colors */
+        :root {
+            --brand-burgundy: #8B1A2B;
+            --brand-burgundy-dark: #6B0F1F;
+            --brand-gold: #C9A961;
+            --brand-gold-light: #D4B97A;
+            --bg-light: #F8F6F4;
+            --bg-white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-gray: #4A5568;
+            --text-light: #718096;
+            --border-light: #E2E8F0;
+            
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Source Sans 3', sans-serif;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--brand-burgundy) 0%, var(--brand-burgundy-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-gold);
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 1.4rem;
+            box-shadow: 0 2px 8px rgba(139, 26, 43, 0.3);
+        }
+        
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--brand-burgundy);
+            text-decoration: none;
+            line-height: 1;
+        }
+        
+        .logo-text small {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-gray);
+            font-family: var(--font-body);
+            letter-spacing: 0.1em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: var(--transition);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--brand-burgundy) 0%, var(--brand-burgundy-dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(201,169,97,0.06)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201,169,97,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .hero-decor-1 {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201,169,97,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        
+        .hero-decor-2 {
+            position: absolute;
+            top: 20%;
+            right: 15%;
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(201,169,97,0.2);
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+        }
+        
+        .hero-decor-3 {
+            position: absolute;
+            bottom: 25%;
+            right: 8%;
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(201,169,97,0.15);
+            transform: rotate(45deg);
+            animation: spin 15s linear infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--brand-gold);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+        
+        .hero h1 .highlight {
+            color: var(--brand-gold);
+        }
+        
+        .hero-description {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--brand-gold);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
+            border: 2px solid var(--brand-gold);
+        }
+        
+        .cta-button:hover {
+            background: var(--brand-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(201, 169, 97, 0.4);
+        }
+        
+        .cta-button.outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .cta-button.outline:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Chewy Spotlight Section */
+        .chewy-spotlight {
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .spotlight-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .spotlight-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .spotlight-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .spotlight-header h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--brand-burgundy);
+            margin-bottom: 1rem;
+        }
+        
+        .spotlight-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .chewy-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+        
+        .chewy-visual {
+            position: relative;
+        }
+        
+        .chewy-logo-display {
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            border-radius: 12px;
+            padding: 4rem 3rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chewy-logo-display::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201,169,97,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .chewy-brand-name {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 900;
+            color: white;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
+        }
+        
+        .chewy-brand-name .tagline {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--brand-gold);
+            letter-spacing: 0.3em;
+            margin-top: 0.5rem;
+            font-family: var(--font-body);
+        }
+        
+        .seven-eleven-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #008060;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0, 128, 96, 0.4);
+        }
+        
+        .seven-eleven-badge .number {
+            background: white;
+            color: #008060;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+        
+        .chewy-details h3 {
+            color: var(--brand-burgundy);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chewy-details p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .achievement-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .achievement-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .achievement-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .achievement-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--brand-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .achievement-text strong {
+            display: block;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .achievement-text span {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-content h2 {
+            text-align: left;
+            color: var(--brand-burgundy);
+        }
+        
+        .about-text {
+            margin-bottom: 2rem;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .about-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border: none;
+        }
+        
+        .about-stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--brand-burgundy);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+        
+        /* Brand Portfolio Section */
+        .brands {
+            background: var(--bg-white);
+        }
+        
+        .portfolio-categories {
+            margin-top: 3rem;
+        }
+        
+        .portfolio-category {
+            margin-bottom: 3rem;
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-light);
+        }
+        
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--brand-burgundy) 0%, var(--brand-burgundy-dark) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-gold);
+            font-size: 1.5rem;
+        }
+        
+        .category-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--brand-burgundy);
+        }
+        
+        .category-title small {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-gray);
+            font-family: var(--font-body);
+        }
+        
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .brand-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .brand-item:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .brand-item-logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--brand-burgundy);
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+        
+        .brand-item-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            padding: 0.5rem;
+        }
+        
+        .brand-item-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+        
+        .brand-item-sub {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        /* Distribution Section */
+        .distribution {
+            background: var(--bg-light);
+        }
+        
+        .distribution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .warehouse-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--brand-gold);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .warehouse-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .warehouse-card h3 {
+            color: var(--brand-burgundy);
+            margin-bottom: 1rem;
+        }
+        
+        .warehouse-specs {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .warehouse-specs li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+        }
+        
+        .warehouse-specs li:last-child {
+            border-bottom: none;
+        }
+        
+        .spec-label {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+        
+        .spec-value {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--brand-burgundy) 0%, var(--brand-burgundy-dark) 100%);
+            color: white;
+        }
+        
+        .contact .section-tag {
+            color: var(--brand-gold);
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact .section-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--brand-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text strong {
+            display: block;
+            color: white;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        
+        .contact-text span {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: white;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+            background: white;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--brand-gold);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .submit-button:hover {
+            background: var(--brand-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0A0A0A;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-brand h3 {
+            font-family: var(--font-display);
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 400px;
+        }
+        
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--brand-gold);
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .about-grid,
+            .chewy-showcase,
+            .distribution-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .chewy-brand-name {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container, .spotlight-container {
+                padding: 0 1.5rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            .brand-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .chewy-brand-name {
+                font-size: 2.5rem;
+            }
+            
+            .seven-eleven-badge {
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+            }
+            
+            .seven-eleven-badge .number {
+                font-size: 1.1rem;
+            }
+            
+            .warehouse-highlights {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="logo-container">
+                <img src="images/myqueen-logo.png" alt="My Queen Logo" style="height: 50px; width: auto;">
+                <div class="logo-text">
+                    My Queen
+                    <small>PTY LTD</small>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#chewy">Chewy</a></li>
+                <li><a href="#brands">Brands</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-decor-1"></div>
+        <div class="hero-decor-2"></div>
+        <div class="hero-decor-3"></div>
+        
+        <div class="hero-content">
+            <span class="hero-badge">Australia's Leading Asian Food Distribution Platform</span>
+            <h1>
+                We Build & Scale Brands<br>
+                <span class="highlight">Across Australia</span>
+            </h1>
+            <p class="hero-description">
+                From market entry to nationwide scale. My Queen Pty Ltd is a premium food distribution platform 
+                helping Asian brands dominate the Australian market since 2015. Home of the <strong>Chewy</strong> brand, 
+                now proudly serving 650+ 7-Eleven stores nationwide.
+            </p>
+            <div class="hero-cta">
+                <a href="#chewy" class="cta-button">Explore Chewy Brand</a>
+                <a href="#contact" class="cta-button outline">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chewy Spotlight Section -->
+    <section class="chewy-spotlight" id="chewy">
+        <div class="spotlight-container">
+            <div class="spotlight-header">
+                <span class="spotlight-tag">Our Own Brand</span>
+                <h2>Chewy - Premium Selection</h2>
+                <p class="spotlight-subtitle">
+                    Our flagship brand successfully entering Australia's largest convenience store chain
+                </p>
+            </div>
+            
+            <div class="chewy-showcase">
+                <div class="chewy-visual fade-in">
+                    <div class="chewy-logo-display">
+                        <img src="images/chewy-logo.png" alt="Chewy Premium Selection" style="max-width: 280px; width: 100%; height: auto; position: relative; z-index: 2; margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 2;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Proudly in</div>
+                            <img src="https://s.coze.cn/image/GCdhEuGo3vY/" alt="7-Eleven" style="height: 50px; width: auto;">
+                            <div style="background: white; color: #008060; padding: 0.5rem 1.2rem; border-radius: 4px; font-size: 1.5rem; font-weight: 900;">650+</div>
+                            <div style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Stores</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chewy-details fade-in">
+                    <h3>From Market Entry to Nationwide Success</h3>
+                    <p>
+                        Chewy is My Queen's own premium bakery brand, representing our proven capability 
+                        in brand building and retail execution. Since launching in 7-Eleven Australia, 
+                        Chewy has become a TikTok viral hit and a consumer favorite.
+                    </p>
+                    <p>
+                        This achievement validates our mature system for channel development and product 
+                        scaling — the same system we deploy for all partner brands.
+                    </p>
+                    
+                    <ul class="achievement-list">
+                        <li>
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">
+                                <strong>650+ Store Locations</strong>
+                                <span>Nationwide coverage across all Australian states</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="achievement-icon">🔥</div>
+                            <div class="achievement-text">
+                                <strong>TikTok Viral Product</strong>
+                                <span>Strong consumer demand and social media presence</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="achievement-icon">🏆</div>
+                            <div class="achievement-text">
+                                <strong>Vendor Approved</strong>
+                                <span>Meeting 7-Eleven's strict quality and compliance standards</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="achievement-icon">📈</div>
+                            <div class="achievement-text">
+                                <strong>Orders in Progress</strong>
+                                <span>Continuous growth with expanding product range</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag">Company Overview</span>
+                    <h2>About My Queen Pty Ltd</h2>
+                    <div class="about-text">
+                        <p>
+                            Founded in 2015 and headquartered in Sydney, My Queen Pty Ltd is a premium food distribution 
+                            and brand operation platform specializing in Asian food products.
+                        </p>
+                        <p>
+                            Over the past decade, we've built a comprehensive sales and distribution network covering 
+                            all of Australia, with self-operated warehousing and cold chain logistics centers in Sydney 
+                            and Melbourne. We are not just a distributor — we are a growth engine for brands in the 
+                            Australian market.
+                        </p>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="about-stat fade-in">
+                            <div class="about-stat-number">10+</div>
+                            <div class="about-stat-label">Years Experience</div>
+                        </div>
+                        <div class="about-stat fade-in">
+                            <div class="about-stat-number">7,000+</div>
+                            <div class="about-stat-label">SQM Warehouse</div>
+                        </div>
+                        <div class="about-stat fade-in">
+                            <div class="about-stat-number">2</div>
+                            <div class="about-stat-label">Cities Coverage</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image fade-in">
+                    <img src="images/warehouse.jpg" alt="My Queen Warehouse Operations" style="width:100%; border-radius:8px; box-shadow: var(--shadow-lg);">
+                </div>
+            </div>
+
+            <div class="warehouse-highlights fade-in" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:4rem;">
+                <div style="background:white; border-radius:8px; padding:2rem; box-shadow:var(--shadow-sm); border-left:4px solid var(--brand-burgundy);">
+                    <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
+                        <span style="font-size:1.5rem;">📍</span>
+                        <h4 style="font-family:var(--font-display); color:var(--brand-burgundy); font-size:1.3rem;">Sydney</h4>
+                    </div>
+                    <p style="font-size:0.95rem; color:var(--text-gray); margin:0;">
+                        4,000 sqm · Head Office · Cold chain logistics center<br>
+                        Serving NSW and surrounding regions
+                    </p>
+                </div>
+                <div style="background:white; border-radius:8px; padding:2rem; box-shadow:var(--shadow-sm); border-left:4px solid var(--brand-gold);">
+                    <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
+                        <span style="font-size:1.5rem;">📍</span>
+                        <h4 style="font-family:var(--font-display); color:var(--brand-burgundy); font-size:1.3rem;">Melbourne</h4>
+                    </div>
+                    <p style="font-size:0.95rem; color:var(--text-gray); margin:0;">
+                        3,000 sqm · Frozen storage facility<br>
+                        Covering VIC, SA and WA markets
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Portfolio Section -->
+    <section class="brands" id="brands">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Brand Portfolio</span>
+                <h2>Curated Brands with Strong Growth Potential</h2>
+                <p class="section-description">
+                    We partner with leading Asian food brands to bring quality products to Australian consumers.
+                </p>
+            </div>
+            
+            <div class="portfolio-categories">
+                <!-- Core Brands -->
+                <div class="portfolio-category fade-in">
+                    <div class="category-header">
+                        <div class="category-icon">👑</div>
+                        <div class="category-title">
+                            Core Brands
+                            <small>核心品牌</small>
+                        </div>
+                    </div>
+                    <div class="brand-grid">
+                        <div class="brand-item">
+                            <div class="brand-item-logo">
+                                <img src="https://s.coze.cn/image/CuNURWDhMpw/" alt="太二酸菜鱼">
+                            </div>
+                            <div class="brand-item-name">太二酸菜鱼</div>
+                            <div class="brand-item-sub">TAIER SUANCAI FISH</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">
+                                <img src="https://s.coze.cn/image/MprCzAxiPcg/" alt="十月稻田">
+                            </div>
+                            <div class="brand-item-name">十月稻田</div>
+                            <div class="brand-item-sub">SHI YUE DAO TIAN</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">
+                                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=200&q=80" alt="盒马">
+                            </div>
+                            <div class="brand-item-name">盒马</div>
+                            <div class="brand-item-sub">FRESHIPPO</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">
+                                <img src="https://s.coze.cn/image/KtxM0J8z5QU/" alt="良品铺子">
+                            </div>
+                            <div class="brand-item-name">良品铺子</div>
+                            <div class="brand-item-sub">BESTORE</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">
+                                <img src="https://s.coze.cn/image/6uyk34s_b-Y/" alt="上好佳">
+                            </div>
+                            <div class="brand-item-name">上好佳</div>
+                            <div class="brand-item-sub">OISHI</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Partners -->
+                <div class="portfolio-category fade-in">
+                    <div class="category-header">
+                        <div class="category-icon">🤝</div>
+                        <div class="category-title">
+                            Key Partners
+                            <small>重要合作品牌</small>
+                        </div>
+                    </div>
+                    <div class="brand-grid">
+                        <div class="brand-item">
+                            <div class="brand-item-logo">
+                                <img src="https://s.coze.cn/image/zVHi6pC5YBY/" alt="安井食品">
+                            </div>
+                            <div class="brand-item-name">安井食品</div>
+                            <div class="brand-item-sub">ANJOY FOOD</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">
+                                <img src="https://s.coze.cn/image/7n62-B5KOpE/" alt="张飞牛肉">
+                            </div>
+                            <div class="brand-item-name">张飞牛肉</div>
+                            <div class="brand-item-sub">ZHANGFEI BEEF</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">
+                                <img src="https://s.coze.cn/image/eRvNU7cDw2k/" alt="西贝莜面村">
+                            </div>
+                            <div class="brand-item-name">西贝莜面村</div>
+                            <div class="brand-item-sub">XIBEI</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">云半山</div>
+                            <div class="brand-item-name">云半山</div>
+                            <div class="brand-item-sub">YUN BAN SHAN</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">潮力</div>
+                            <div class="brand-item-name">潮力啤酒</div>
+                            <div class="brand-item-sub">CHAOLI BEER</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">
+                                <img src="https://s.coze.cn/image/-bxSs15hQNE/" alt="小龙坎">
+                            </div>
+                            <div class="brand-item-name">小龙坎老火锅</div>
+                            <div class="brand-item-sub">SHOO LOONG KAN</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">优之</div>
+                            <div class="brand-item-name">优之良品</div>
+                            <div class="brand-item-sub">AJI ICHIBAN</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Japan Partners -->
+                <div class="portfolio-category fade-in">
+                    <div class="category-header">
+                        <div class="category-icon">🌸</div>
+                        <div class="category-title">
+                            Japan Partners
+                            <small>日本合作品牌</small>
+                        </div>
+                    </div>
+                    <div class="brand-grid">
+                        <div class="brand-item">
+                            <div class="brand-item-logo">八天堂</div>
+                            <div class="brand-item-name">八天堂</div>
+                            <div class="brand-item-sub">HATTENDO</div>
+                        </div>
+                        <div class="brand-item">
+                            <div class="brand-item-logo">春日山</div>
+                            <div class="brand-item-name">奈良春日山酿造</div>
+                            <div class="brand-item-sub">KASUGAYAMA BREWING</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Our Own Brand -->
+                <div class="portfolio-category fade-in">
+                    <div class="category-header">
+                        <div class="category-icon">⭐</div>
+                        <div class="category-title">
+                            Our Own Brand
+                            <small>自有品牌</small>
+                        </div>
+                    </div>
+                    <div class="brand-grid">
+                        <div class="brand-item" style="background: linear-gradient(135deg, var(--brand-burgundy) 0%, var(--brand-burgundy-dark) 100%); color: white;">
+                            <div class="brand-item-logo" style="background: white; color: var(--brand-burgundy);">
+                                <img src="images/chewy-logo.png" alt="Chewy" style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 0.5rem;">
+                            </div>
+                            <div class="brand-item-name" style="color: white;">Chewy</div>
+                            <div class="brand-item-sub" style="color: rgba(255,255,255,0.8);">PREMIUM SELECTION</div>
+                            <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--brand-gold);">650+ 7-Eleven Stores</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2>Let's Build The Next Success Story</h2>
+                <p class="section-description">
+                    Ready to scale your brand in Australia? Contact us to discuss partnership opportunities.
+                </p>
+            </div>
+            
+            <div class="contact-content" style="grid-template-columns:1fr; max-width:500px; margin:3rem auto 0;">
+                <div class="contact-info" style="text-align:center;">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-details" style="display:flex; flex-direction:column; align-items:center;">
+                        <li style="justify-content:center; border-bottom:none;">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text" style="text-align:left;">
+                                <strong>Email</strong>
+                                <span><a href="mailto:info@myqueen.com.au" style="color:rgba(255,255,255,0.8); text-decoration:none;">info@myqueen.com.au</a></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>My Queen Pty Ltd</h3>
+                    <p>
+                        Australia's leading Asian food distribution and brand operation platform. 
+                        Home of Chewy brand. Building bridges between Asian brands and Australian 
+                        consumers since 2015.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#chewy">Chewy Brand</a></li>
+                        <li><a href="#brands">Brand Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="mailto:info@myqueen.com.au">info@myqueen.com.au</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2015 - 2026 My Queen Pty Ltd. All rights reserved. | ACN 605 151 764</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
