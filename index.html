@@ -1109,7 +1109,7 @@
     <nav id="navbar">
         <div class="nav-content">
             <div class="logo-container">
-                <img src="images/myqueen-logo.png" alt="My Queen Logo" style="height: 50px; width: auto;">
+                <img src="images/myqueen-logo.png" alt="My Queen Logo" style="height: 65px; width: auto;">
                 <div class="logo-text">
                     My Queen
                     <small>PTY LTD</small>
@@ -1249,15 +1249,15 @@
                     
                     <div class="about-stats">
                         <div class="about-stat fade-in">
-                            <div class="about-stat-number">10+</div>
+                            <div class="about-stat-number counter" data-target="10" data-suffix="+">0</div>
                             <div class="about-stat-label">Years Experience</div>
                         </div>
                         <div class="about-stat fade-in">
-                            <div class="about-stat-number">7,000+</div>
+                            <div class="about-stat-number counter" data-target="7000" data-suffix="+" data-format="comma">0</div>
                             <div class="about-stat-label">SQM Warehouse</div>
                         </div>
                         <div class="about-stat fade-in">
-                            <div class="about-stat-number">2</div>
+                            <div class="about-stat-number counter" data-target="2" data-suffix="">0</div>
                             <div class="about-stat-label">Cities Coverage</div>
                         </div>
                     </div>
@@ -1266,10 +1266,14 @@
                 <div class="about-image fade-in">
                     <div class="image-carousel">
                         <div class="carousel-container">
-                            <img src="images/sydney-dc.jpg" alt="Sydney Distribution Centre" class="carousel-image active">
-                            <img src="images/sydney-ops.jpg" alt="Sydney Operations" class="carousel-image">
-                            <img src="images/melbourne-dc.jpg" alt="Melbourne Distribution Centre" class="carousel-image">
-                            <img src="images/melbourne-ops.jpg" alt="Melbourne Operations" class="carousel-image">
+                            <img src="images/warehouse-sydney1.jpg" alt="Sydney Warehouse" class="carousel-image active">
+                            <img src="images/warehouse-sydney2.jpg" alt="Sydney Operations" class="carousel-image">
+                            <img src="images/warehouse-melbourne1.jpg" alt="Melbourne Warehouse" class="carousel-image">
+                            <img src="images/warehouse-melbourne2.jpg" alt="Melbourne Operations" class="carousel-image">
+                            <img src="images/warehouse-aisle1.jpg" alt="Warehouse Aisle" class="carousel-image">
+                            <img src="images/warehouse-rack1.jpg" alt="Warehouse Rack" class="carousel-image">
+                            <img src="images/warehouse-aisle2.jpg" alt="Warehouse Aisle" class="carousel-image">
+                            <img src="images/warehouse-rack2.jpg" alt="Warehouse Rack" class="carousel-image">
                         </div>
                         <button class="carousel-btn prev" onclick="changeSlide(-1)">‹</button>
                         <button class="carousel-btn next" onclick="changeSlide(1)">›</button>
@@ -1278,6 +1282,10 @@
                             <span class="dot" onclick="goToSlide(1)"></span>
                             <span class="dot" onclick="goToSlide(2)"></span>
                             <span class="dot" onclick="goToSlide(3)"></span>
+                            <span class="dot" onclick="goToSlide(4)"></span>
+                            <span class="dot" onclick="goToSlide(5)"></span>
+                            <span class="dot" onclick="goToSlide(6)"></span>
+                            <span class="dot" onclick="goToSlide(7)"></span>
                         </div>
                     </div>
                 </div>
@@ -1590,6 +1598,57 @@
         setInterval(() => {
             changeSlide(1);
         }, 5000);
+
+        // Counter Animation
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-target'));
+            const suffix = el.getAttribute('data-suffix') || '';
+            const format = el.getAttribute('data-format');
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease-out
+                const eased = 1 - Math.pow(1 - progress, 3);
+                let current = Math.floor(eased * target);
+                
+                let display = current;
+                if (format === 'comma') {
+                    display = current.toLocaleString();
+                }
+                
+                el.textContent = display + suffix;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    // Final value
+                    let final = target;
+                    if (format === 'comma') {
+                        final = target.toLocaleString();
+                    }
+                    el.textContent = final + suffix;
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Observe counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    animateCounter(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(el => {
+            counterObserver.observe(el);
+        });
     </script>
 </body>
 </html>
