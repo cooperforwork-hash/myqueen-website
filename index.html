@@ -628,13 +628,13 @@
         /* Brand Grid - Oriental Merchant Style */
         .brand-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 0;
         }
         
         .brand-item {
             background: white;
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             text-align: center;
             transition: var(--transition);
             border: 1px solid #eee;
@@ -642,7 +642,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 140px;
+            min-height: 180px;
         }
         
         .brand-item:hover {
@@ -654,15 +654,15 @@
         
         .brand-item-logo {
             width: 80%;
-            height: 80px;
+            height: 110px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-family: var(--font-display);
             font-weight: 700;
             color: var(--brand-burgundy);
-            font-size: 0.95rem;
+            font-size: 1.3rem;
             overflow: hidden;
         }
         
@@ -675,13 +675,15 @@
         .brand-item-name {
             font-weight: 600;
             color: var(--text-dark);
-            font-size: 0.85rem;
+            font-size: 1.05rem;
+            text-align: center;
         }
         
         .brand-item-sub {
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             letter-spacing: 0.5px;
+            text-align: center;
         }
         
         /* Category divider */
@@ -689,10 +691,11 @@
             grid-column: 1 / -1;
             background: var(--brand-burgundy);
             color: white;
-            padding: 0.8rem 1.5rem;
-            font-size: 0.9rem;
+            padding: 1rem 1.5rem;
+            font-size: 1.05rem;
             font-weight: 600;
             letter-spacing: 1px;
+            text-align: center;
         }
         
         /* Distribution Section */
@@ -1168,14 +1171,37 @@
             </div>
             
             <div class="chewy-showcase">
-                <div class="chewy-visual fade-in" style="display: flex; flex-direction: column; gap: 2rem;">
-                    <div style="background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%); border-radius: 12px; padding: 3rem; text-align: center; box-shadow: var(--shadow-lg);">
-                        <img src="images/chewy-logo.png" alt="Chewy Premium Selection" style="max-width: 240px; width: 100%; height: auto;">
+                <div class="chewy-visual fade-in" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <!-- Product Carousel -->
+                    <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); background: #f5f5f5;">
+                        <div id="productCarousel" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-product1.png" alt="Chewy Products" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-product2.png" alt="Chewy Products" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-product3.png" alt="Chewy Products" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-product4.png" alt="Chewy Products" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-product5.png" alt="Chewy Products" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-product6.png" alt="Chewy Products" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                        </div>
+                        <button onclick="document.getElementById('productCarousel').scrollBy({left:-300,behavior:'smooth'})" style="position:absolute;left:0.5rem;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow-sm);z-index:5;">‹</button>
+                        <button onclick="document.getElementById('productCarousel').scrollBy({left:300,behavior:'smooth'})" style="position:absolute;right:0.5rem;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow-sm);z-index:5;">›</button>
                     </div>
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; background: white; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: var(--shadow-md);">
+                    <!-- 7-Eleven Badge -->
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; background: white; padding: 1.2rem 2rem; border-radius: 12px; box-shadow: var(--shadow-md);">
                         <span style="font-size: 1rem; color: var(--text-gray); font-weight: 500;">Proudly in</span>
-                        <img src="https://s.coze.cn/image/GCdhEuGo3vY/" alt="7-Eleven" style="height: 45px; width: auto;">
-                        <div style="background: #008060; color: white; padding: 0.6rem 1.5rem; border-radius: 50px; font-size: 1.3rem; font-weight: 900;">650+</div>
+                        <img src="https://s.coze.cn/image/GCdhEuGo3vY/" alt="7-Eleven" style="height: 40px; width: auto;">
+                        <div style="background: #008060; color: white; padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 1.2rem; font-weight: 900;">650+</div>
                         <span style="font-size: 1rem; color: var(--text-gray); font-weight: 500;">Stores</span>
                     </div>
                 </div>
@@ -1294,7 +1320,7 @@
             <div class="warehouse-highlights fade-in" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:4rem;">
                 <div style="background:white; border-radius:8px; padding:2rem; box-shadow:var(--shadow-sm); border-left:4px solid var(--brand-burgundy);">
                     <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
-                        <span style="font-size:1.5rem;">📍</span>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-burgundy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         <h4 style="font-family:var(--font-display); color:var(--brand-burgundy); font-size:1.3rem;">Sydney</h4>
                     </div>
                     <p style="font-size:0.95rem; color:var(--text-gray); margin:0;">
@@ -1304,7 +1330,7 @@
                 </div>
                 <div style="background:white; border-radius:8px; padding:2rem; box-shadow:var(--shadow-sm); border-left:4px solid var(--brand-gold);">
                     <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
-                        <span style="font-size:1.5rem;">📍</span>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         <h4 style="font-family:var(--font-display); color:var(--brand-burgundy); font-size:1.3rem;">Melbourne</h4>
                     </div>
                     <p style="font-size:0.95rem; color:var(--text-gray); margin:0;">
