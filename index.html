@@ -1333,15 +1333,15 @@
                     
                     <div class="about-stats">
                         <div class="about-stat fade-in">
-                            <div class="about-stat-number counter" data-target="10" data-suffix="+">0</div>
+                            <div class="about-stat-number">10+</div>
                             <div class="about-stat-label">Years Experience</div>
                         </div>
                         <div class="about-stat fade-in">
-                            <div class="about-stat-number counter" data-target="7000" data-suffix="+" data-format="comma">0</div>
+                            <div class="about-stat-number">7,000+</div>
                             <div class="about-stat-label">SQM Warehouse</div>
                         </div>
                         <div class="about-stat fade-in">
-                            <div class="about-stat-number counter" data-target="2" data-suffix="">0</div>
+                            <div class="about-stat-number">2</div>
                             <div class="about-stat-label">Distribution Center</div>
                         </div>
                         <div class="about-stat fade-in">
@@ -1416,7 +1416,7 @@
             <div class="portfolio-categories">
                 <!-- Core Brands -->
                 <div class="portfolio-category fade-in">
-                    <div class="brand-category-label">CORE BRANDS</div>
+                    <div class="brand-category-label">AUSTRALIAN EXCLUSIVE BRANDS</div>
                     <div class="brand-grid">
                         <div class="brand-item">
                             <div class="brand-item-logo">
@@ -1697,56 +1697,6 @@
             changeSlide(1);
         }, 5000);
 
-        // Counter Animation
-        function animateCounter(el) {
-            const target = parseInt(el.getAttribute('data-target'));
-            const suffix = el.getAttribute('data-suffix') || '';
-            const format = el.getAttribute('data-format');
-            const duration = 2000;
-            const startTime = performance.now();
-
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                // Ease-out
-                const eased = 1 - Math.pow(1 - progress, 3);
-                let current = Math.floor(eased * target);
-                
-                let display = current;
-                if (format === 'comma') {
-                    display = current.toLocaleString();
-                }
-                
-                el.textContent = display + suffix;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                } else {
-                    // Final value
-                    let final = target;
-                    if (format === 'comma') {
-                        final = target.toLocaleString();
-                    }
-                    el.textContent = final + suffix;
-                }
-            }
-
-            requestAnimationFrame(update);
-        }
-
-        // Observe counters
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                    entry.target.classList.add('counted');
-                    animateCounter(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.counter').forEach(el => {
-            counterObserver.observe(el);
-        });
     </script>
 </body>
 </html>
