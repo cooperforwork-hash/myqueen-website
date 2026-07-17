@@ -697,6 +697,117 @@
             z-index: 2;
             box-shadow: 0 8px 24px rgba(139, 26, 43, 0.1);
         }
+
+        .brand-clickable {
+            cursor: pointer;
+        }
+
+        /* Brand Promo Carousel */
+        .brand-promo-carousel {
+            margin-top: 2rem;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        .brand-promo-carousel::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-burgundy), var(--brand-gold), var(--brand-burgundy));
+        }
+        .brand-promo-track {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            background: #fafafa;
+        }
+        .brand-promo-slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .brand-promo-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .brand-promo-slide img {
+            max-width: 88%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .brand-promo-controls {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+        }
+        .brand-promo-arrow {
+            pointer-events: auto;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.92);
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s;
+            color: var(--brand-burgundy);
+            z-index: 5;
+        }
+        .brand-promo-arrow:hover {
+            background: var(--brand-burgundy);
+            color: #fff;
+        }
+        .brand-promo-arrow.prev { left: 14px; }
+        .brand-promo-arrow.next { right: 14px; }
+        .brand-promo-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 0 1.2rem;
+        }
+        .brand-promo-dot {
+            width: 11px; height: 11px;
+            border-radius: 50%;
+            border: 2px solid var(--brand-burgundy);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.25s;
+            padding: 0;
+        }
+        .brand-promo-dot.active {
+            background: var(--brand-burgundy);
+            transform: scale(1.2);
+        }
+        .brand-promo-name {
+            text-align: center;
+            padding: 0 0 0.8rem;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--brand-burgundy);
+            letter-spacing: 1px;
+        }
+        .brand-item.brand-active {
+            background: #f8f0e0;
+            box-shadow: inset 0 0 0 2px var(--brand-gold);
+        }
         
         .brand-item-logo {
             width: 80%;
@@ -1134,6 +1245,14 @@
             .brand-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .brand-promo-track {
+                height: 220px;
+            }
+            .brand-promo-arrow {
+                width: 36px; height: 36px;
+                font-size: 1.2rem;
+            }
             
             .chewy-brand-name {
                 font-size: 2.5rem;
@@ -1417,43 +1536,73 @@
                 <!-- Core Brands -->
                 <div class="portfolio-category fade-in">
                     <div class="brand-category-label">AUSTRALIAN EXCLUSIVE BRANDS</div>
-                    <div class="brand-grid">
-                        <div class="brand-item">
+                    <div class="brand-grid" id="exclusive-brands-grid">
+                        <div class="brand-item brand-clickable" data-brand="taier">
                             <div class="brand-item-logo">
                                 <img src="images/brand-taier.webp" alt="Taier Suancai Fish">
                             </div>
                             <div class="brand-item-sub">TAIER SUANCAI FISH</div>
                         </div>
-                        <div class="brand-item">
+                        <div class="brand-item brand-clickable" data-brand="shiyue">
                             <div class="brand-item-logo">
                                 <img src="images/brand-shiyue-daotian.png" alt="Shi Yue Dao Tian">
                             </div>
                             <div class="brand-item-sub">SHI YUE DAO TIAN</div>
                         </div>
-                        <div class="brand-item">
+                        <div class="brand-item brand-clickable" data-brand="fresco">
                             <div class="brand-item-logo">
                                 <img src="images/brand-hema.png" alt="Hema Fresh">
                             </div>
                             <div class="brand-item-sub">FRESHIPPO</div>
                         </div>
-                        <div class="brand-item">
+                        <div class="brand-item brand-clickable" data-brand="bestore">
                             <div class="brand-item-logo">
                                 <img src="images/brand-lppz.png" alt="Bestore">
                             </div>
                             <div class="brand-item-sub">BESTORE</div>
                         </div>
-                        <div class="brand-item">
+                        <div class="brand-item brand-clickable" data-brand="oishi">
                             <div class="brand-item-logo">
                                 <img src="images/brand-shanghaojia.jpg" alt="Oishi">
                             </div>
                             <div class="brand-item-sub">OISHI</div>
                         </div>
-                        <div class="brand-item">
+                        <div class="brand-item brand-clickable" data-brand="guozi">
                             <div class="brand-item-logo">
                                 <img src="images/brand-guozi-shule.jpeg" alt="Guozi Shule">
                             </div>
                             <div class="brand-item-sub">GUOZI SHULE</div>
                         </div>
+                    </div>
+
+                    <!-- Brand Promo Carousel -->
+                    <div class="brand-promo-carousel" id="brandPromoCarousel">
+                        <div class="brand-promo-track" id="brandPromoTrack">
+                            <div class="brand-promo-slide active" data-brand="taier">
+                                <img src="images/brand-taier.webp" alt="Taier Suancai Fish">
+                            </div>
+                            <div class="brand-promo-slide" data-brand="shiyue">
+                                <img src="images/brand-shiyue-daotian.png" alt="Shi Yue Dao Tian">
+                            </div>
+                            <div class="brand-promo-slide" data-brand="fresco">
+                                <img src="images/brand-hema.png" alt="Fresco">
+                            </div>
+                            <div class="brand-promo-slide" data-brand="bestore">
+                                <img src="images/brand-lppz.png" alt="Bestore">
+                            </div>
+                            <div class="brand-promo-slide" data-brand="oishi">
+                                <img src="images/brand-shanghaojia.jpg" alt="Oishi">
+                            </div>
+                            <div class="brand-promo-slide" data-brand="guozi">
+                                <img src="images/brand-guozi-shule.jpeg" alt="Guozi Shule">
+                            </div>
+                            <div class="brand-promo-controls">
+                                <button class="brand-promo-arrow prev" onclick="brandPromoPrev()">‹</button>
+                                <button class="brand-promo-arrow next" onclick="brandPromoNext()">›</button>
+                            </div>
+                        </div>
+                        <div class="brand-promo-dots" id="brandPromoDots"></div>
+                        <div class="brand-promo-name" id="brandPromoName">TAIER SUANCAI FISH</div>
                     </div>
                 </div>
                 
@@ -1702,6 +1851,79 @@
         setInterval(() => {
             changeSlide(1);
         }, 5000);
+
+        // === Brand Promo Carousel ===
+        const brandNames = {
+            taier: 'TAIER SUANCAI FISH',
+            shiyue: 'SHI YUE DAO TIAN',
+            fresco: 'FRESHIPPO',
+            bestore: 'BESTORE',
+            oishi: 'OISHI',
+            guozi: 'GUOZI SHULE'
+        };
+        let brandSlideIdx = 0;
+        let brandTimer = null;
+        const brandSlides = document.querySelectorAll('#brandPromoTrack .brand-promo-slide');
+        const brandTotal  = brandSlides.length;
+
+        function initBrandDots() {
+            const dotsBox = document.getElementById('brandPromoDots');
+            dotsBox.innerHTML = '';
+            for (let i = 0; i < brandTotal; i++) {
+                const d = document.createElement('button');
+                d.className = 'brand-promo-dot' + (i === 0 ? ' active' : '');
+                d.onclick = () => goToBrandSlide(i);
+                dotsBox.appendChild(d);
+            }
+        }
+
+        function goToBrandSlide(idx) {
+            brandSlides.forEach(s => s.classList.remove('active'));
+            brandSlides[idx].classList.add('active');
+            document.querySelectorAll('.brand-promo-dot').forEach((d, i) =>
+                d.classList.toggle('active', i === idx)
+            );
+            const key = brandSlides[idx].dataset.brand;
+            document.getElementById('brandPromoName').textContent = brandNames[key] || '';
+            // highlight active brand in grid
+            document.querySelectorAll('#exclusive-brands-grid .brand-item').forEach(el =>
+                el.classList.toggle('brand-active', el.dataset.brand === key)
+            );
+            brandSlideIdx = idx;
+        }
+
+        function brandPromoNext() {
+            goToBrandSlide((brandSlideIdx + 1) % brandTotal);
+            resetBrandTimer();
+        }
+        function brandPromoPrev() {
+            goToBrandSlide((brandSlideIdx - 1 + brandTotal) % brandTotal);
+            resetBrandTimer();
+        }
+        function resetBrandTimer() {
+            clearInterval(brandTimer);
+            brandTimer = setInterval(() => {
+                goToBrandSlide((brandSlideIdx + 1) % brandTotal);
+            }, 3000);
+        }
+
+        // Click brand logo to jump to that slide
+        document.querySelectorAll('#exclusive-brands-grid .brand-clickable').forEach(el => {
+            el.addEventListener('click', () => {
+                const key = el.dataset.brand;
+                const idx = Array.from(brandSlides).findIndex(s => s.dataset.brand === key);
+                if (idx !== -1) {
+                    goToBrandSlide(idx);
+                    resetBrandTimer();
+                }
+            });
+        });
+
+        initBrandDots();
+        // highlight first brand
+        document.querySelector('#exclusive-brands-grid .brand-item').classList.add('brand-active');
+        // start auto-play
+        resetBrandTimer();
 
     </script>
 </body>
