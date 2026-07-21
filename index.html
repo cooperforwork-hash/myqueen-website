@@ -1831,8 +1831,8 @@
                                 <img src="images/chewy-longjing-daifuku-new.png" alt="Chewy Longjing Daifuku" style="max-height: 420px; width: auto; max-width: 100%; object-fit: contain;">
                             </div>
                         </div>
-                        <button onclick="document.getElementById('ownBrandCarousel').scrollBy({left:-300,behavior:'smooth'})" style="position:absolute;left:0.5rem;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow-sm);z-index:5;">‹</button>
-                        <button onclick="document.getElementById('ownBrandCarousel').scrollBy({left:300,behavior:'smooth'})" style="position:absolute;right:0.5rem;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow-sm);z-index:5;">›</button>
+                        <button onclick="document.getElementById('ownBrandCarousel').scrollBy({left:-300,behavior:'smooth'});window.ownBrandResetTimer&&window.ownBrandResetTimer()" style="position:absolute;left:0.5rem;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow-sm);z-index:5;">‹</button>
+                        <button onclick="document.getElementById('ownBrandCarousel').scrollBy({left:300,behavior:'smooth'});window.ownBrandResetTimer&&window.ownBrandResetTimer()" style="position:absolute;right:0.5rem;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow-sm);z-index:5;">›</button>
                     </div>
                     <div style="text-align: center; margin-top: 0.75rem;">
                         <span style="font-size: 1.1rem; font-weight: 600; color: var(--text-dark);">Chewy</span>
@@ -2059,6 +2059,38 @@
         }
 
         document.querySelectorAll('.brand-promo-carousel').forEach(initCarousel);
+
+        // === Own Brand Carousel Auto-Play ===
+        var ownBrandTimer;
+        (function() {
+            var carousel = document.getElementById('ownBrandCarousel');
+            if (!carousel) return;
+            var scrollAmount = 300;
+            var interval = 3500;
+
+            function autoScroll() {
+                var maxScroll = carousel.scrollWidth - carousel.clientWidth;
+                if (carousel.scrollLeft >= maxScroll - 5) {
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+
+            window.ownBrandResetTimer = function() {
+                clearInterval(ownBrandTimer);
+                ownBrandTimer = setInterval(autoScroll, interval);
+            };
+            function startAuto() { ownBrandTimer = setInterval(autoScroll, interval); }
+            function stopAuto() { clearInterval(ownBrandTimer); }
+
+            carousel.addEventListener('mouseenter', stopAuto);
+            carousel.addEventListener('mouseleave', function() { window.ownBrandResetTimer(); });
+            carousel.addEventListener('touchstart', stopAuto, { passive: true });
+            carousel.addEventListener('touchend', function() { window.ownBrandResetTimer(); });
+
+            startAuto();
+        })();
 
     </script>
 </body>
