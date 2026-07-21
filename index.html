@@ -1366,6 +1366,34 @@
                 height: 250px;
             }
         }
+
+        /* Language Toggle Button */
+        .lang-toggle-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--brand-burgundy);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            margin-left: 1.5rem;
+            flex-shrink: 0;
+        }
+        .lang-toggle-btn:hover {
+            background: var(--brand-gold);
+        }
+        [data-i18n] {
+            transition: opacity 0.3s ease;
+        }
+        [data-i18n].lang-switching {
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -1381,13 +1409,13 @@
             </div>
             
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#chewy">Chewy</a></li>
-                <li><a href="#brands">Brands</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#chewy" data-i18n="nav.chewy">Chewy</a></li>
+                <li><a href="#brands" data-i18n="nav.brands">Brands</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
-            
+            <button class="lang-toggle-btn" id="langToggle" onclick="toggleLanguage()" title="Switch Language">中</button>
             <div class="mobile-menu">
                 <span></span>
                 <span></span>
@@ -1404,19 +1432,17 @@
         <div class="hero-decor-3"></div>
         
         <div class="hero-content">
-            <span class="hero-badge">Australia's Leading Asian Food Distribution Platform</span>
+            <span class="hero-badge" data-i18n="hero.badge">Australia's Leading Asian Food Distribution Platform</span>
             <h1>
-                We Build & Scale Brands<br>
-                <span class="highlight">Across Australia</span>
+                <span data-i18n="hero.subtitle1">We Build & Scale Brands</span><br>
+                <span class="highlight" data-i18n="hero.subtitle2">Across Australia</span>
             </h1>
             <p class="hero-description">
-                From market entry to nationwide scale. My Queen Pty Ltd is a premium food distribution platform 
-                helping Asian brands dominate the Australian market since 2015. Home of the <strong>Chewy</strong> brand, 
-                now proudly serving 650+ 7-Eleven stores nationwide.
+                <span data-i18n="hero.paragraph" data-i18n-html="true">From market entry to nationwide scale. My Queen Pty Ltd is a premium food distribution platform helping Asian brands dominate the Australian market since 2015. Home of the <strong>Chewy</strong> brand, now proudly serving 650+ 7-Eleven stores nationwide.</span>
             </p>
             <div class="hero-cta">
-                <a href="#chewy" class="cta-button">Explore Chewy Brand</a>
-                <a href="#contact" class="cta-button outline">Partner With Us</a>
+                <a href="#chewy" class="cta-button" data-i18n="hero.cta1">Explore Chewy Brand</a>
+                <a href="#contact" class="cta-button outline" data-i18n="hero.cta2">Partner With Us</a>
             </div>
         </div>
     </section>
@@ -1425,9 +1451,9 @@
     <section class="chewy-spotlight" id="chewy">
         <div class="spotlight-container">
             <div class="spotlight-header">
-                <span class="spotlight-tag">Our Own Brand</span>
-                <h2>Chewy - Premium Selection</h2>
-                <p class="spotlight-subtitle">
+                <span class="spotlight-tag" data-i18n="chewy.tag">Our Own Brand</span>
+                <h2 data-i18n="chewy.title">Chewy - Premium Selection</h2>
+                <p class="spotlight-subtitle" data-i18n="chewy.subtitle">
                     Our flagship brand successfully entering Australia's largest convenience store chain
                 </p>
             </div>
@@ -1461,52 +1487,49 @@
                     </div>
                     <!-- 7-Eleven Badge -->
                     <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; background: white; padding: 1.2rem 2rem; border-radius: 12px; box-shadow: var(--shadow-md);">
-                        <span style="font-size: 1rem; color: var(--text-gray); font-weight: 500;">Proudly in</span>
+                        <span style="font-size: 1rem; color: var(--text-gray); font-weight: 500;" data-i18n="chewy.proudly">Proudly in</span>
                         <img src="https://s.coze.cn/image/GCdhEuGo3vY/" alt="7-Eleven" style="height: 40px; width: auto;">
                         <div style="background: #008060; color: white; padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 1.2rem; font-weight: 900;">650+</div>
-                        <span style="font-size: 1rem; color: var(--text-gray); font-weight: 500;">Stores</span>
+                        <span style="font-size: 1rem; color: var(--text-gray); font-weight: 500;" data-i18n="chewy.stores">Stores</span>
                     </div>
                 </div>
                 
                 <div class="chewy-details fade-in">
-                    <h3>From Market Entry to Nationwide Success</h3>
+                    <h3 data-i18n="chewy.heading">From Market Entry to Nationwide Success</h3>
                     <p>
-                        Chewy is My Queen's own premium bakery brand, representing our proven capability 
-                        in brand building and retail execution. Since launching in 7-Eleven Australia, 
-                        Chewy has become a TikTok viral hit and a consumer favorite.
+                        <span data-i18n="chewy.desc1">Chewy is My Queen's own premium bakery brand, representing our proven capability in brand building and retail execution. Since launching in 7-Eleven Australia, Chewy has become a TikTok viral hit and a consumer favorite.</span>
                     </p>
                     <p>
-                        This achievement validates our mature system for channel development and product 
-                        scaling — the same system we deploy for all partner brands.
+                        <span data-i18n="chewy.desc2">This achievement validates our mature system for channel development and product scaling — the same system we deploy for all partner brands.</span>
                     </p>
                     
                     <ul class="achievement-list">
                         <li>
                             <div class="achievement-icon">✓</div>
                             <div class="achievement-text">
-                                <strong>650+ Store Locations</strong>
-                                <span>Nationwide coverage across all Australian states</span>
+                                <strong data-i18n="chewy.ach1t">650+ Store Locations</strong>
+                                <span data-i18n="chewy.ach1d">Nationwide coverage across all Australian states</span>
                             </div>
                         </li>
                         <li>
                             <div class="achievement-icon">🎵</div>
                             <div class="achievement-text">
-                                <strong>TikTok Viral Product</strong>
-                                <span>Strong consumer demand and social media presence</span>
+                                <strong data-i18n="chewy.ach2t">TikTok Viral Product</strong>
+                                <span data-i18n="chewy.ach2d">Strong consumer demand and social media presence</span>
                             </div>
                         </li>
                         <li>
                             <div class="achievement-icon">🏆</div>
                             <div class="achievement-text">
-                                <strong>Vendor Approved</strong>
-                                <span>Meeting 7-Eleven's strict quality and compliance standards</span>
+                                <strong data-i18n="chewy.ach3t">Vendor Approved</strong>
+                                <span data-i18n="chewy.ach3d">Meeting 7-Eleven's strict quality and compliance standards</span>
                             </div>
                         </li>
                         <li>
                             <div class="achievement-icon">📈</div>
                             <div class="achievement-text">
-                                <strong>Orders in Progress</strong>
-                                <span>Continuous growth with expanding product range</span>
+                                <strong data-i18n="chewy.ach4t">Orders in Progress</strong>
+                                <span data-i18n="chewy.ach4d">Continuous growth with expanding product range</span>
                             </div>
                         </li>
                     </ul>
@@ -1520,37 +1543,33 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <span class="section-tag">Company Overview</span>
-                    <h2>About My Queen Pty Ltd</h2>
+                    <span class="section-tag" data-i18n="about.tag">Company Overview</span>
+                    <h2 data-i18n="about.title">About My Queen Pty Ltd</h2>
                     <div class="about-text">
                         <p>
-                            Founded in 2015 and headquartered in Sydney, My Queen Pty Ltd is a premium food distribution 
-                            and brand operation platform specializing in Asian food products.
+                            <span data-i18n="about.desc1">Founded in 2015 and headquartered in Sydney, My Queen Pty Ltd is a premium food distribution and brand operation platform specializing in Asian food products.</span>
                         </p>
                         <p>
-                            Over the past decade, we've built a comprehensive sales and distribution network covering 
-                            all of Australia, with self-operated warehousing and cold chain logistics centers in Sydney 
-                            and Melbourne. We are not just a distributor — we are a growth engine for brands in the 
-                            Australian market.
+                            <span data-i18n="about.desc2">Over the past decade, we've built a comprehensive sales and distribution network covering all of Australia, with self-operated warehousing and cold chain logistics centers in Sydney and Melbourne. We are not just a distributor — we are a growth engine for brands in the Australian market.</span>
                         </p>
                     </div>
                     
                     <div class="about-stats">
                         <div class="about-stat fade-in">
                             <div class="about-stat-number">10+</div>
-                            <div class="about-stat-label">Years Experience</div>
+                            <div class="about-stat-label" data-i18n="about.stat1">Years Experience</div>
                         </div>
                         <div class="about-stat fade-in">
                             <div class="about-stat-number">7,000+</div>
-                            <div class="about-stat-label">SQM Warehouse</div>
+                            <div class="about-stat-label" data-i18n="about.stat2">SQM Warehouse</div>
                         </div>
                         <div class="about-stat fade-in">
                             <div class="about-stat-number">2</div>
-                            <div class="about-stat-label">Distribution Center</div>
+                            <div class="about-stat-label" data-i18n="about.stat3">Distribution Center</div>
                         </div>
                         <div class="about-stat fade-in">
                             <div class="about-stat-number" style="font-size:2.5rem;color:var(--brand-gold);">✓</div>
-                            <div class="about-stat-label">Coverage Australia Wide</div>
+                            <div class="about-stat-label" data-i18n="about.stat4">Coverage Australia Wide</div>
                         </div>
                     </div>
                 </div>
@@ -1588,8 +1607,7 @@
                         <h4 style="font-family:var(--font-display); color:var(--brand-burgundy); font-size:1.3rem;">Sydney</h4>
                     </div>
                     <p style="font-size:0.95rem; color:var(--text-gray); margin:0;">
-                        4,000 sqm · Head Office · Cold chain logistics center<br>
-                        Serving NSW and surrounding regions
+                        <span data-i18n="about.sydney" data-i18n-html="true">4,000 sqm · Head Office · Cold chain logistics center<br>Serving NSW and surrounding regions</span>
                     </p>
                 </div>
                 <div style="background:white; border-radius:8px; padding:2rem; box-shadow:var(--shadow-sm); border-left:4px solid var(--brand-gold);">
@@ -1598,8 +1616,7 @@
                         <h4 style="font-family:var(--font-display); color:var(--brand-burgundy); font-size:1.3rem;">Melbourne</h4>
                     </div>
                     <p style="font-size:0.95rem; color:var(--text-gray); margin:0;">
-                        3,000 sqm · Frozen storage facility<br>
-                        Covering VIC, SA and WA markets
+                        <span data-i18n="about.melbourne" data-i18n-html="true">3,000 sqm · Frozen storage facility<br>Covering VIC, SA and WA markets</span>
                     </p>
                 </div>
             </div>
@@ -1610,8 +1627,8 @@
     <section class="distribution" id="distribution">
         <div class="container">
             <div class="distribution-header">
-                <h2>FROM ENTRY TO NATIONWIDE <span class="highlight-word">SCALE</span></h2>
-                <p class="subtitle">Australia-wide Distribution Network</p>
+                <h2><span data-i18n="dist.title" data-i18n-html="true">FROM ENTRY TO NATIONWIDE <span class="highlight-word">SCALE</span></span></h2>
+                <p class="subtitle" data-i18n="dist.subtitle">Australia-wide Distribution Network</p>
             </div>
 
             <div class="distribution-map fade-in">
@@ -1624,8 +1641,8 @@
                         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
                     <div class="distribution-feature-text">
-                        <h4>NATIONWIDE COVERAGE</h4>
-                        <p>From entry to every major market</p>
+                        <h4 data-i18n="dist.feat1t">NATIONWIDE COVERAGE</h4>
+                        <p data-i18n="dist.feat1d">From entry to every major market</p>
                     </div>
                 </div>
                 <div class="distribution-feature">
@@ -1633,8 +1650,8 @@
                         <svg viewBox="0 0 24 24"><rect x="1" y="6" width="15" height="12" rx="1"/><path d="M16 10h4l3 4v4h-7V10z"/><circle cx="7" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M4 10l2-4h4"/></svg>
                     </div>
                     <div class="distribution-feature-text">
-                        <h4>DRY &amp; FROZEN DISTRIBUTION</h4>
-                        <p>Temperature-controlled transport</p>
+                        <h4 data-i18n="dist.feat2t">DRY &amp; FROZEN DISTRIBUTION</h4>
+                        <p data-i18n="dist.feat2d">Temperature-controlled transport</p>
                     </div>
                 </div>
                 <div class="distribution-feature">
@@ -1642,8 +1659,8 @@
                         <svg viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/><line x1="10" y1="1" x2="14" y2="1"/><line x1="10" y1="23" x2="14" y2="23"/><line x1="10" y1="7" x2="14" y2="7"/><line x1="10" y1="13" x2="14" y2="13"/></svg>
                     </div>
                     <div class="distribution-feature-text">
-                        <h4>MULTI-TEMPERATURE LOGISTICS</h4>
-                        <p>Dry, chilled &amp; frozen solutions</p>
+                        <h4 data-i18n="dist.feat3t">MULTI-TEMPERATURE LOGISTICS</h4>
+                        <p data-i18n="dist.feat3d">Dry, chilled &amp; frozen solutions</p>
                     </div>
                 </div>
                 <div class="distribution-feature">
@@ -1651,8 +1668,8 @@
                         <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
                     </div>
                     <div class="distribution-feature-text">
-                        <h4>RETAIL &amp; WHOLESALE FULFILMENT</h4>
-                        <p>Efficient and reliable delivery</p>
+                        <h4 data-i18n="dist.feat4t">RETAIL &amp; WHOLESALE FULFILMENT</h4>
+                        <p data-i18n="dist.feat4d">Efficient and reliable delivery</p>
                     </div>
                 </div>
                 <div class="distribution-feature">
@@ -1660,8 +1677,8 @@
                         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                     </div>
                     <div class="distribution-feature-text">
-                        <h4>EFFICIENT &bull; RELIABLE</h4>
-                        <p>Built for performance and growth</p>
+                        <h4 data-i18n="dist.feat5t">EFFICIENT &bull; RELIABLE</h4>
+                        <p data-i18n="dist.feat5d">Built for performance and growth</p>
                     </div>
                 </div>
             </div>
@@ -1672,17 +1689,17 @@
     <section class="brands" id="brands">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Our Brand Portfolio</span>
-                <h2>Curated Brands with Strong Growth Potential</h2>
+                <span class="section-tag" data-i18n="brands.tag">Our Brand Portfolio</span>
+                <h2 data-i18n="brands.title">Curated Brands with Strong Growth Potential</h2>
                 <p class="section-description">
-                    We partner with leading Asian food brands to bring quality products to Australian consumers.
+                    <span data-i18n="brands.desc">We partner with leading Asian food brands to bring quality products to Australian consumers.</span>
                 </p>
             </div>
             
             <div class="portfolio-categories">
                 <!-- Australian Exclusive Brands -->
                 <div class="portfolio-category fade-in">
-                    <div class="brand-category-label">AUSTRALIAN EXCLUSIVE BRANDS</div>
+                    <div class="brand-category-label" data-i18n="brands.cat1">AUSTRALIAN EXCLUSIVE BRANDS</div>
                     <div class="brand-grid" data-carousel="exclusive">
                         <div class="brand-item brand-clickable" data-brand="shiyue">
                             <div class="brand-item-logo"><img src="images/brand-shiyue-daotian.png" alt="Shi Yue Dao Tian"></div>
@@ -1729,7 +1746,7 @@
                 
                 <!-- Key Partners -->
                 <div class="portfolio-category fade-in">
-                    <div class="brand-category-label">KEY PARTNERS</div>
+                    <div class="brand-category-label" data-i18n="brands.cat2">KEY PARTNERS</div>
                     <div class="brand-grid" data-carousel="key">
                         <div class="brand-item brand-clickable" data-brand="anjoy">
                             <div class="brand-item-logo"><img src="images/brand-anjoy.jpeg" alt="Anjoy Food"></div>
@@ -1776,7 +1793,7 @@
                 
                 <!-- Japan Partners -->
                 <div class="portfolio-category fade-in">
-                    <div class="brand-category-label">JAPAN PARTNERS</div>
+                    <div class="brand-category-label" data-i18n="brands.cat3">JAPAN PARTNERS</div>
                     <div class="brand-grid" data-carousel="japan">
                         <div class="brand-item brand-clickable" data-brand="hattendo">
                             <div class="brand-item-logo"><img src="images/brand-hattendo.png" alt="Hattendo"></div>
@@ -1803,7 +1820,7 @@
                 
                 <!-- Our Own Brand -->
                 <div class="portfolio-category fade-in">
-                    <div class="brand-category-label">OUR OWN BRAND</div>
+                    <div class="brand-category-label" data-i18n="brands.cat4">OUR OWN BRAND</div>
                     <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); background: #f5f5f5; margin-top: 0.5rem;">
                         <div id="ownBrandCarousel" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
                             <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1.5rem;">
@@ -1848,21 +1865,21 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Get In Touch</span>
-                <h2>Let's Build The Next Success Story</h2>
+                <span class="section-tag" data-i18n="contact.tag">Get In Touch</span>
+                <h2 data-i18n="contact.title">Let's Build The Next Success Story</h2>
                 <p class="section-description">
-                    Ready to scale your brand in Australia? Contact us to discuss partnership opportunities.
+                    <span data-i18n="contact.desc">Ready to scale your brand in Australia? Contact us to discuss partnership opportunities.</span>
                 </p>
             </div>
             
             <div class="contact-content" style="grid-template-columns:1fr; max-width:500px; margin:3rem auto 0;">
                 <div class="contact-info" style="text-align:center;">
-                    <h3>Contact Information</h3>
+                    <h3 data-i18n="contact.info">Contact Information</h3>
                     <ul class="contact-details" style="display:flex; flex-direction:column; align-items:center;">
                         <li style="justify-content:center; border-bottom:none;">
                             <div class="contact-icon">✉️</div>
                             <div class="contact-text" style="text-align:left;">
-                                <strong>Email</strong>
+                                <strong data-i18n="contact.email">Email</strong>
                                 <span><a href="mailto:info@myqueen.com.au" style="color:rgba(255,255,255,0.8); text-decoration:none;">info@myqueen.com.au</a></span>
                             </div>
                         </li>
@@ -1879,23 +1896,21 @@
                 <div class="footer-brand">
                     <h3>My Queen Pty Ltd</h3>
                     <p>
-                        Australia's leading Asian food distribution and brand operation platform. 
-                        Home of Chewy brand. Building bridges between Asian brands and Australian 
-                        consumers since 2015.
+                        <span data-i18n="footer.desc">Australia's leading Asian food distribution and brand operation platform. Home of Chewy brand. Building bridges between Asian brands and Australian consumers since 2015.</span>
                     </p>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4 data-i18n="footer.quicklinks">Quick Links</h4>
                     <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#chewy">Chewy Brand</a></li>
-                        <li><a href="#brands">Brand Portfolio</a></li>
+                        <li><a href="#about" data-i18n="footer.aboutus">About Us</a></li>
+                        <li><a href="#chewy" data-i18n="footer.chewybrand">Chewy Brand</a></li>
+                        <li><a href="#brands" data-i18n="footer.portfolio">Brand Portfolio</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Connect</h4>
+                    <h4 data-i18n="footer.connect">Connect</h4>
                     <ul>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#contact" data-i18n="footer.contactus">Contact Us</a></li>
                         <li><a href="mailto:info@myqueen.com.au">info@myqueen.com.au</a></li>
                     </ul>
                 </div>
@@ -2091,6 +2106,197 @@
 
             startAuto();
         })();
+
+
+
+        // ============ i18n Language Switching ============
+        const translations = {
+            en: {
+                'nav.home': 'Home',
+                'nav.about': 'About',
+                'nav.chewy': 'Chewy',
+                'nav.brands': 'Brands',
+                'nav.contact': 'Contact',
+                'hero.badge': "Australia's Leading Asian Food Distribution Platform",
+                'hero.subtitle1': 'We Build & Scale Brands',
+                'hero.subtitle2': 'Across Australia',
+                'hero.paragraph': 'From market entry to nationwide scale. My Queen Pty Ltd is a premium food distribution platform helping Asian brands dominate the Australian market since 2015. Home of the <strong>Chewy</strong> brand, now proudly serving 650+ 7-Eleven stores nationwide.',
+                'hero.cta1': 'Explore Chewy Brand',
+                'hero.cta2': 'Partner With Us',
+                'chewy.tag': 'Our Own Brand',
+                'chewy.title': 'Chewy - Premium Selection',
+                'chewy.subtitle': "Our flagship brand successfully entering Australia's largest convenience store chain",
+                'chewy.proudly': 'Proudly in',
+                'chewy.stores': 'Stores',
+                'chewy.heading': 'From Market Entry to Nationwide Success',
+                'chewy.desc1': "Chewy is My Queen's own premium bakery brand, representing our proven capability in brand building and retail execution. Since launching in 7-Eleven Australia, Chewy has become a TikTok viral hit and a consumer favorite.",
+                'chewy.desc2': 'This achievement validates our mature system for channel development and product scaling — the same system we deploy for all partner brands.',
+                'chewy.ach1t': '650+ Store Locations',
+                'chewy.ach1d': 'Nationwide coverage across all Australian states',
+                'chewy.ach2t': 'TikTok Viral Product',
+                'chewy.ach2d': 'Strong consumer demand and social media presence',
+                'chewy.ach3t': 'Vendor Approved',
+                'chewy.ach3d': "Meeting 7-Eleven's strict quality and compliance standards",
+                'chewy.ach4t': 'Orders in Progress',
+                'chewy.ach4d': 'Continuous growth with expanding product range',
+                'about.tag': 'Company Overview',
+                'about.title': 'About My Queen Pty Ltd',
+                'about.desc1': 'Founded in 2015 and headquartered in Sydney, My Queen Pty Ltd is a premium food distribution and brand operation platform specializing in Asian food products.',
+                'about.desc2': "Over the past decade, we've built a comprehensive sales and distribution network covering all of Australia, with self-operated warehousing and cold chain logistics centers in Sydney and Melbourne. We are not just a distributor — we are a growth engine for brands in the Australian market.",
+                'about.stat1': 'Years Experience',
+                'about.stat2': 'SQM Warehouse',
+                'about.stat3': 'Distribution Center',
+                'about.stat4': 'Coverage Australia Wide',
+                'about.sydney': '4,000 sqm · Head Office · Cold chain logistics center<br>Serving NSW and surrounding regions',
+                'about.melbourne': '3,000 sqm · Frozen storage facility<br>Covering VIC, SA and WA markets',
+                'dist.title': 'FROM ENTRY TO NATIONWIDE <span class="highlight-word">SCALE</span>',
+                'dist.subtitle': 'Australia-wide Distribution Network',
+                'dist.feat1t': 'NATIONWIDE COVERAGE',
+                'dist.feat1d': 'From entry to every major market',
+                'dist.feat2t': 'DRY &amp; FROZEN DISTRIBUTION',
+                'dist.feat2d': 'Temperature-controlled transport',
+                'dist.feat3t': 'MULTI-TEMPERATURE LOGISTICS',
+                'dist.feat3d': 'Dry, chilled &amp; frozen solutions',
+                'dist.feat4t': 'RETAIL &amp; WHOLESALE FULFILMENT',
+                'dist.feat4d': 'Efficient and reliable delivery',
+                'dist.feat5t': 'EFFICIENT &bull; RELIABLE',
+                'dist.feat5d': 'Built for performance and growth',
+                'brands.tag': 'Our Brand Portfolio',
+                'brands.title': 'Curated Brands with Strong Growth Potential',
+                'brands.desc': 'We partner with leading Asian food brands to bring quality products to Australian consumers.',
+                'brands.cat1': 'AUSTRALIAN EXCLUSIVE BRANDS',
+                'brands.cat2': 'KEY PARTNERS',
+                'brands.cat3': 'JAPAN PARTNERS',
+                'brands.cat4': 'OUR OWN BRAND',
+                'contact.tag': 'Get In Touch',
+                'contact.title': "Let's Build The Next Success Story",
+                'contact.desc': 'Ready to scale your brand in Australia? Contact us to discuss partnership opportunities.',
+                'contact.info': 'Contact Information',
+                'contact.email': 'Email',
+                'footer.desc': "Australia's leading Asian food distribution and brand operation platform. Home of Chewy brand. Building bridges between Asian brands and Australian consumers since 2015.",
+                'footer.quicklinks': 'Quick Links',
+                'footer.aboutus': 'About Us',
+                'footer.chewybrand': 'Chewy Brand',
+                'footer.portfolio': 'Brand Portfolio',
+                'footer.connect': 'Connect',
+                'footer.contactus': 'Contact Us'
+            },
+            zh: {
+                'nav.home': '首页',
+                'nav.about': '关于我们',
+                'nav.chewy': 'Chewy',
+                'nav.brands': '品牌矩阵',
+                'nav.contact': '联系我们',
+                'hero.badge': '澳大利亚领先的亚洲食品分销平台',
+                'hero.subtitle1': '我们打造并拓展品牌',
+                'hero.subtitle2': '覆盖全澳',
+                'hero.paragraph': '从市场进入至全国规模覆盖。My Queen Pty Ltd 是优质的食品分销平台，自2015年起助力亚洲品牌主导澳大利亚市场。Chewy <strong>品牌</strong>的缔造者，现已服务全国650+ 7-Eleven 门店。',
+                'hero.cta1': '探索 Chewy 品牌',
+                'hero.cta2': '与我们合作',
+                'chewy.tag': '自有品牌',
+                'chewy.title': 'Chewy - 臻选品质',
+                'chewy.subtitle': '我们的旗舰品牌成功进驻澳大利亚最大便利店连锁',
+                'chewy.proudly': '荣耀入驻',
+                'chewy.stores': '门店',
+                'chewy.heading': '从市场进入迈向全国成功',
+                'chewy.desc1': 'Chewy 是 My Queen 旗下自有高端烘焙品牌，代表着我们在品牌建设和零售执行方面的成熟能力。自进驻 7-Eleven Australia 以来，Chewy 已成为 TikTok 爆款和消费者最爱。',
+                'chewy.desc2': '这一成就验证了我们成熟的渠道拓展和产品规模化体系——同样适用于所有合作品牌。',
+                'chewy.ach1t': '650+ 门店覆盖',
+                'chewy.ach1d': '覆盖澳大利亚所有州和地区',
+                'chewy.ach2t': 'TikTok 爆款产品',
+                'chewy.ach2d': '强劲的消费者需求与社交媒体影响力',
+                'chewy.ach3t': '供应商认证',
+                'chewy.ach3d': '满足 7-Eleven 严格的质量与合规标准',
+                'chewy.ach4t': '持续增长中',
+                'chewy.ach4d': '产品线持续扩展，订单稳步增长',
+                'about.tag': '公司概览',
+                'about.title': '关于 My Queen Pty Ltd',
+                'about.desc1': '成立于2015年，总部位于悉尼，My Queen Pty Ltd 是一家专注于亚洲食品的优质食品分销与品牌运营平台。',
+                'about.desc2': '过去十年，我们构建了覆盖全澳大利亚的综合销售与分销网络，在悉尼和墨尔本设有自营仓储和冷链物流中心。我们不仅是分销商——更是品牌在澳大利亚市场的增长引擎。',
+                'about.stat1': '年行业经验',
+                'about.stat2': '平米仓储面积',
+                'about.stat3': '分销中心',
+                'about.stat4': '覆盖全澳',
+                'about.sydney': '4,000 平米 · 总部 · 冷链物流中心<br>服务新南威尔士州及周边地区',
+                'about.melbourne': '3,000 平米 · 冷冻仓储设施<br>覆盖维多利亚、南澳和西澳市场',
+                'dist.title': '从市场进入至全国规模<span class="highlight-word">覆盖</span>',
+                'dist.subtitle': '全澳分销网络',
+                'dist.feat1t': '全国覆盖',
+                'dist.feat1d': '从进入点到各大核心市场',
+                'dist.feat2t': '常温与冷冻配送',
+                'dist.feat2d': '温控运输',
+                'dist.feat3t': '多温层物流',
+                'dist.feat3d': '常温、冷藏及冷冻全链路解决方案',
+                'dist.feat4t': '零售与批发履约',
+                'dist.feat4d': '高效可靠的配送服务',
+                'dist.feat5t': '高效 · 可靠',
+                'dist.feat5d': '为业绩与增长而打造',
+                'brands.tag': '品牌矩阵',
+                'brands.title': '精选高成长潜力品牌',
+                'brands.desc': '我们与领先亚洲食品品牌合作，将优质产品带给澳大利亚消费者。',
+                'brands.cat1': '澳洲独家品牌',
+                'brands.cat2': '核心合作伙伴',
+                'brands.cat3': '日本合作伙伴',
+                'brands.cat4': '自有品牌',
+                'contact.tag': '联系我们',
+                'contact.title': '共铸下一个成功故事',
+                'contact.desc': '准备在澳大利亚拓展您的品牌？联系我们探讨合作机会。',
+                'contact.info': '联系方式',
+                'contact.email': '邮箱',
+                'footer.desc': '澳大利亚领先的亚洲食品分销与品牌运营平台。Chewy 品牌缔造者。自2015年起，搭建亚洲品牌与澳大利亚消费者之间的桥梁。',
+                'footer.quicklinks': '快速链接',
+                'footer.aboutus': '关于我们',
+                'footer.chewybrand': 'Chewy 品牌',
+                'footer.portfolio': '品牌矩阵',
+                'footer.connect': '联系方式',
+                'footer.contactus': '联系我们'
+            }
+        };
+
+        let currentLang = localStorage.getItem('myqueen-lang') || 'en';
+
+        function applyLanguage(lang) {
+            const els = document.querySelectorAll('[data-i18n]');
+            els.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key] !== undefined) {
+                    if (el.hasAttribute('data-i18n-html')) {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+            // Update toggle button text
+            const btn = document.getElementById('langToggle');
+            if (btn) {
+                btn.textContent = lang === 'en' ? '中' : 'EN';
+            }
+            // Update page title
+            if (lang === 'zh') {
+                document.title = 'My Queen Pty Ltd - 澳大利亚领先的亚洲食品分销平台';
+            } else {
+                document.title = "My Queen Pty Ltd - Australia's Leading Asian Food Distribution Platform";
+            }
+            document.documentElement.lang = lang;
+            currentLang = lang;
+            localStorage.setItem('myqueen-lang', lang);
+        }
+
+        function toggleLanguage() {
+            const els = document.querySelectorAll('[data-i18n]');
+            els.forEach(el => el.classList.add('lang-switching'));
+            setTimeout(() => {
+                const newLang = currentLang === 'en' ? 'zh' : 'en';
+                applyLanguage(newLang);
+                els.forEach(el => el.classList.remove('lang-switching'));
+            }, 300);
+        }
+
+        // Apply saved language on load
+        if (currentLang !== 'en') {
+            applyLanguage(currentLang);
+        }
 
     </script>
 </body>
