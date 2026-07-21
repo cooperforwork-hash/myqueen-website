@@ -1369,14 +1369,13 @@
 
         /* Language Toggle Button */
         .lang-toggle-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
             background: var(--brand-burgundy);
             color: white;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            border: none;
+            border: 2px solid var(--brand-gold);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -1384,9 +1383,19 @@
             transition: var(--transition);
             margin-left: 1.5rem;
             flex-shrink: 0;
+            letter-spacing: 0.03em;
         }
         .lang-toggle-btn:hover {
             background: var(--brand-gold);
+            color: var(--brand-burgundy);
+        }
+
+        @media (max-width: 968px) {
+            .lang-toggle-btn {
+                padding: 0.3rem 0.7rem;
+                font-size: 0.75rem;
+                border-width: 1.5px;
+            }
         }
         [data-i18n] {
             transition: opacity 0.3s ease;
@@ -1415,7 +1424,7 @@
                 <li><a href="#brands" data-i18n="nav.brands">Brands</a></li>
                 <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
-            <button class="lang-toggle-btn" id="langToggle" onclick="toggleLanguage()" title="Switch Language">中</button>
+            <button class="lang-toggle-btn" id="langToggle" onclick="toggleLanguage()" title="Switch Language">中文</button>
             <div class="mobile-menu">
                 <span></span>
                 <span></span>
@@ -1703,27 +1712,27 @@
                     <div class="brand-grid" data-carousel="exclusive">
                         <div class="brand-item brand-clickable" data-brand="shiyue">
                             <div class="brand-item-logo"><img src="images/brand-shiyue-daotian.png" alt="Shi Yue Dao Tian"></div>
-                            <div class="brand-item-sub">SHI YUE DAO TIAN</div>
+                            <div class="brand-item-sub" data-i18n="brand-shiyue">SHI YUE DAO TIAN</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="bestore">
                             <div class="brand-item-logo"><img src="images/brand-lppz.png" alt="Bestore"></div>
-                            <div class="brand-item-sub">BESTORE</div>
+                            <div class="brand-item-sub" data-i18n="brand-bestore">BESTORE</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="oishi">
                             <div class="brand-item-logo"><img src="images/brand-shanghaojia.jpg" alt="Oishi"></div>
-                            <div class="brand-item-sub">OISHI</div>
+                            <div class="brand-item-sub" data-i18n="brand-oishi">OISHI</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="guozi">
                             <div class="brand-item-logo"><img src="images/brand-guozi-shule.jpeg" alt="Guozi Shule"></div>
-                            <div class="brand-item-sub">GUOZI SHULE</div>
+                            <div class="brand-item-sub" data-i18n="brand-guozi">GUOZI SHULE</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="zhangfei">
                             <div class="brand-item-logo"><img src="images/brand-zhangfei.jpg" alt="Zhangfei Beef"></div>
-                            <div class="brand-item-sub">ZHANGFEI BEEF</div>
+                            <div class="brand-item-sub" data-i18n="brand-zhangfei">ZHANGFEI BEEF</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="chaoli">
                             <div class="brand-item-logo"><img src="images/brand-chaoli.jpeg" alt="Chaoli Beer"></div>
-                            <div class="brand-item-sub">CHAOLI BEER</div>
+                            <div class="brand-item-sub" data-i18n="brand-chaoli">CHAOLI BEER</div>
                         </div>
                     </div>
                     <div class="brand-promo-carousel" data-carousel="exclusive">
@@ -1750,27 +1759,27 @@
                     <div class="brand-grid" data-carousel="key">
                         <div class="brand-item brand-clickable" data-brand="anjoy">
                             <div class="brand-item-logo"><img src="images/brand-anjoy.jpeg" alt="Anjoy Food"></div>
-                            <div class="brand-item-sub">ANJOY FOOD</div>
+                            <div class="brand-item-sub" data-i18n="brand-anjoy">ANJOY FOOD</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="taier">
                             <div class="brand-item-logo"><img src="images/brand-taier.webp" alt="Taier Suancai Fish"></div>
-                            <div class="brand-item-sub">TAIER SUANCAI FISH</div>
+                            <div class="brand-item-sub" data-i18n="brand-taier">TAIER SUANCAI FISH</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="fresco">
                             <div class="brand-item-logo"><img src="images/brand-hema.png" alt="Hema Fresh"></div>
-                            <div class="brand-item-sub">FRESHIPPO</div>
+                            <div class="brand-item-sub" data-i18n="brand-fresco">FRESHIPPO</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="yunbanshan">
                             <div class="brand-item-logo"><img src="images/brand-yunbanshan.webp" alt="Yun Ban Ban"></div>
-                            <div class="brand-item-sub">YUN BAN SHAN</div>
+                            <div class="brand-item-sub" data-i18n="brand-yunbanshan">YUN BAN SHAN</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="shooloongkan">
                             <div class="brand-item-logo"><img src="images/brand-xiaolongkan.jpeg" alt="Shoo Loong Kan"></div>
-                            <div class="brand-item-sub">SHOO LOONG KAN</div>
+                            <div class="brand-item-sub" data-i18n="brand-shooloongkan">SHOO LOONG KAN</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="aliichiban">
                             <div class="brand-item-logo"><img src="images/brand-ali-ichiban.png" alt="ALI ICHIBAN"></div>
-                            <div class="brand-item-sub">ALI ICHIBAN</div>
+                            <div class="brand-item-sub" data-i18n="brand-aliichiban">ALI ICHIBAN</div>
                         </div>
                     </div>
                     <div class="brand-promo-carousel" data-carousel="key">
@@ -1797,11 +1806,11 @@
                     <div class="brand-grid" data-carousel="japan">
                         <div class="brand-item brand-clickable" data-brand="hattendo">
                             <div class="brand-item-logo"><img src="images/brand-hattendo.png" alt="Hattendo"></div>
-                            <div class="brand-item-sub">HATTENDO</div>
+                            <div class="brand-item-sub" data-i18n="brand-hattendo">HATTENDO</div>
                         </div>
                         <div class="brand-item brand-clickable" data-brand="kasugayama">
                             <div class="brand-item-logo"><img src="images/brand-nara-kasugayama.webp" alt="Kasugayama"></div>
-                            <div class="brand-item-sub">KASUGAYAMA BREWING</div>
+                            <div class="brand-item-sub" data-i18n="brand-kasugayama">KASUGAYAMA BREWING</div>
                         </div>
                     </div>
                     <div class="brand-promo-carousel" data-carousel="japan">
@@ -2168,6 +2177,20 @@
                 'brands.cat2': 'KEY PARTNERS',
                 'brands.cat3': 'JAPAN PARTNERS',
                 'brands.cat4': 'OUR OWN BRAND',
+                'brand-shiyue': 'SHI YUE DAO TIAN',
+                'brand-bestore': 'BESTORE',
+                'brand-oishi': 'OISHI',
+                'brand-guozi': 'GUOZI SHULE',
+                'brand-zhangfei': 'ZHANGFEI BEEF',
+                'brand-chaoli': 'CHAOLI BEER',
+                'brand-anjoy': 'ANJOY FOOD',
+                'brand-taier': 'TAIER SUANCAI FISH',
+                'brand-fresco': 'FRESHIPPO',
+                'brand-yunbanshan': 'YUN BAN SHAN',
+                'brand-shooloongkan': 'SHOO LOONG KAN',
+                'brand-aliichiban': 'ALI ICHIBAN',
+                'brand-hattendo': 'HATTENDO',
+                'brand-kasugayama': 'KASUGAYAMA BREWING',
                 'contact.tag': 'Get In Touch',
                 'contact.title': "Let's Build The Next Success Story",
                 'contact.desc': 'Ready to scale your brand in Australia? Contact us to discuss partnership opportunities.',
@@ -2195,7 +2218,7 @@
                 'hero.cta2': '与我们合作',
                 'chewy.tag': '自有品牌',
                 'chewy.title': 'Chewy - 臻选品质',
-                'chewy.subtitle': '我们的旗舰品牌成功进驻澳大利亚最大便利店连锁',
+                'chewy.subtitle': '我们的旗舰品牌成功进驻澳大利亚最大连锁便利店',
                 'chewy.proudly': '荣耀入驻',
                 'chewy.stores': '门店',
                 'chewy.heading': '从市场进入迈向全国成功',
@@ -2238,6 +2261,20 @@
                 'brands.cat2': '核心合作伙伴',
                 'brands.cat3': '日本合作伙伴',
                 'brands.cat4': '自有品牌',
+                'brand-shiyue': '十月稻田',
+                'brand-bestore': '良品铺子',
+                'brand-oishi': '上好佳',
+                'brand-guozi': '果子熟了',
+                'brand-zhangfei': '张飞牛肉',
+                'brand-chaoli': '潮力啤酒',
+                'brand-anjoy': '安井',
+                'brand-taier': '太二酸菜鱼',
+                'brand-fresco': '盒马',
+                'brand-yunbanshan': '云山半',
+                'brand-shooloongkan': '小龙坎',
+                'brand-aliichiban': '优の良品',
+                'brand-hattendo': '八天堂',
+                'brand-kasugayama': '奈良春日山酒造',
                 'contact.tag': '联系我们',
                 'contact.title': '共铸下一个成功故事',
                 'contact.desc': '准备在澳大利亚拓展您的品牌？联系我们探讨合作机会。',
@@ -2270,7 +2307,7 @@
             // Update toggle button text
             const btn = document.getElementById('langToggle');
             if (btn) {
-                btn.textContent = lang === 'en' ? '中' : 'EN';
+                btn.textContent = lang === 'en' ? '中文' : 'English';
             }
             // Update page title
             if (lang === 'zh') {
