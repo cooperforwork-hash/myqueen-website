@@ -1478,9 +1478,30 @@
             
             <div class="chewy-showcase">
                 <div class="chewy-visual fade-in" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <!-- Chewy Banner -->
-                    <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md);">
-                        <img src="images/chewy-banner.png" alt="Chewy Desert" style="width: 100%; height: auto; display: block; aspect-ratio: 3/1; object-fit: cover;">
+                    <!-- Product Carousel -->
+                    <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); background: #f5f5f5;">
+                        <div id="productCarousel" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-durian-daifuku-new.png" alt="Chewy Durian Daifuku" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-passionfruit-mango-swiss-roll-new.png" alt="Chewy Passionfruit Mango Swiss Roll" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-sushi-rice-5kg.png" alt="Chewy Sushi Rice" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-koshihikari-rice-5kg.png" alt="Chewy Koshihikari Rice" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-longjing-swiss-roll-new.jpg" alt="Chewy Longjing Swiss Roll" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <div style="scroll-snap-align: center; flex: 0 0 100%; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                                <img src="images/chewy-hazelnut-chocolate-swiss-roll-new.jpg" alt="Chewy Hazelnut Chocolate Swiss Roll" style="max-height: 380px; width: auto; max-width: 100%; object-fit: contain;">
+                            </div>
+                        </div>
+                        <button onclick="document.getElementById('productCarousel').scrollBy({left:-300,behavior:'smooth'})" style="position:absolute;left:0.5rem;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow-sm);z-index:5;">‹</button>
+                        <button onclick="document.getElementById('productCarousel').scrollBy({left:300,behavior:'smooth'})" style="position:absolute;right:0.5rem;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow-sm);z-index:5;">›</button>
                     </div>
                     <!-- 7-Eleven Badge -->
                     <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; background: white; padding: 1.2rem 2rem; border-radius: 12px; box-shadow: var(--shadow-md);">
