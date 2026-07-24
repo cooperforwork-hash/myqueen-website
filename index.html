@@ -1845,11 +1845,23 @@
                 <!-- Our Own Brand -->
                 <div class="portfolio-category fade-in">
                     <div class="brand-category-label" data-i18n="brands.cat4">OUR OWN BRAND</div>
-                    <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); margin-top: 0.5rem;">
-                        <img src="images/chewy-banner.png" alt="Chewy Desert" style="width: 100%; height: auto; display: block; aspect-ratio: 3/1; object-fit: cover;">
+                    <div class="brand-grid" data-carousel="own">
+                        <div class="brand-item brand-clickable" data-brand="chewy">
+                            <div class="brand-item-logo"><img src="images/chewy-logo.png" alt="Chewy"></div>
+                            <div class="brand-item-sub">Chewy</div>
+                        </div>
                     </div>
-                    <div style="text-align: center; margin-top: 0.75rem;">
-                        <span style="font-size: 1.1rem; font-weight: 600; color: var(--text-dark);">Chewy</span>
+                    <div class="brand-promo-carousel" data-carousel="own">
+                        <div class="brand-promo-track">
+                            <div class="brand-promo-slide active" data-brand="chewy"><img src="images/promo-chewy.png" alt="Chewy Bakery"></div>
+                            <div class="brand-promo-slide" data-brand="chewy"><img src="images/promo-chewy-2.png" alt="Chewy Ice Cream"></div>
+                            <div class="brand-promo-controls">
+                                <button class="brand-promo-arrow prev">‹</button>
+                                <button class="brand-promo-arrow next">›</button>
+                            </div>
+                        </div>
+                        <div class="brand-promo-dots"></div>
+                        <div class="brand-promo-name"></div>
                     </div>
                 </div>
             </div>
