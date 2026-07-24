@@ -1853,19 +1853,75 @@
                 </p>
             </div>
             
-            <div class="contact-content" style="grid-template-columns:1fr; max-width:500px; margin:3rem auto 0;">
-                <div class="contact-info" style="text-align:center;">
-                    <h3 data-i18n="contact.info">Contact Information</h3>
-                    <ul class="contact-details" style="display:flex; flex-direction:column; align-items:center;">
-                        <li style="justify-content:center; border-bottom:none;">
-                            <div class="contact-icon">✉️</div>
-                            <div class="contact-text" style="text-align:left;">
-                                <strong data-i18n="contact.email">Email</strong>
-                                <span><a href="mailto:info@myqueen.com.au" style="color:rgba(255,255,255,0.8); text-decoration:none;">info@myqueen.com.au</a></span>
-                            </div>
-                        </li>
-                    </ul>
+            <!-- Warehouse Locations -->
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:2rem; max-width:1000px; margin:3rem auto 0;">
+                <!-- NSW Warehouse -->
+                <div style="background:white; border-radius:12px; overflow:hidden; box-shadow:var(--shadow-md);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.5!2d151.057!3d-33.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1264f0c0c0c0c0%3A0x0!2s41+Roberts+Rd%2C+Greenacre+NSW+2190!5e0!3m2!1sen!2sau!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div style="padding:1.2rem 1.5rem;">
+                        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                            <span style="font-size:1.3rem;">📍</span>
+                            <strong style="font-size:1.1rem; color:var(--text-dark);" data-i18n="contact.nsw">NSW Warehouse</strong>
+                        </div>
+                        <p style="color:var(--text-gray); margin:0; line-height:1.6;" data-i18n="contact.nsw.addr">41 Roberts Road, Greenacre NSW 2190</p>
+                    </div>
                 </div>
+                <!-- VIC Warehouse -->
+                <div style="background:white; border-radius:12px; overflow:hidden; box-shadow:var(--shadow-md);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3128.5!2d145.12!3d-37.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1264f0c0c0c0c0%3A0x0!2s167-173+Westall+Rd%2C+Clayton+South+VIC+3169!5e0!3m2!1sen!2sau!4v1" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div style="padding:1.2rem 1.5rem;">
+                        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                            <span style="font-size:1.3rem;">📍</span>
+                            <strong style="font-size:1.1rem; color:var(--text-dark);" data-i18n="contact.vic">VIC Warehouse</strong>
+                        </div>
+                        <p style="color:var(--text-gray); margin:0; line-height:1.6;" data-i18n="contact.vic.addr">167-173 Westall Road, Clayton South VIC 3169</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enquiry Form -->
+            <div style="max-width:600px; margin:3rem auto 0; background:white; border-radius:12px; padding:2.5rem; box-shadow:var(--shadow-md);">
+                <h3 style="text-align:center; color:var(--text-dark); margin-bottom:0.5rem; font-size:1.5rem;" data-i18n="contact.enquiry.title">Enquire Today</h3>
+                <p style="text-align:center; color:var(--text-gray); margin-bottom:2rem; font-size:0.95rem;" data-i18n="contact.enquiry.desc">Tell us about your business needs and we'll get back to you shortly.</p>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap:1.2rem;">
+                    <div>
+                        <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--text-dark); margin-bottom:0.4rem;" data-i18n="contact.enquiry.name">Name *</label>
+                        <input type="text" name="name" required placeholder="Your name" style="width:100%; padding:0.75rem 1rem; border:1px solid #ddd; border-radius:8px; font-size:0.95rem; box-sizing:border-box;">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--text-dark); margin-bottom:0.4rem;" data-i18n="contact.enquiry.email">Email *</label>
+                        <input type="email" name="email" required placeholder="your@email.com" style="width:100%; padding:0.75rem 1rem; border:1px solid #ddd; border-radius:8px; font-size:0.95rem; box-sizing:border-box;">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--text-dark); margin-bottom:0.4rem;" data-i18n="contact.enquiry.phone">Phone</label>
+                        <input type="tel" name="phone" placeholder="04XX XXX XXX" style="width:100%; padding:0.75rem 1rem; border:1px solid #ddd; border-radius:8px; font-size:0.95rem; box-sizing:border-box;">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--text-dark); margin-bottom:0.4rem;" data-i18n="contact.enquiry.state">State</label>
+                        <select name="state" style="width:100%; padding:0.75rem 1rem; border:1px solid #ddd; border-radius:8px; font-size:0.95rem; box-sizing:border-box; background:white;">
+                            <option value="">Select state</option>
+                            <option value="NSW">NSW</option>
+                            <option value="VIC">VIC</option>
+                            <option value="QLD">QLD</option>
+                            <option value="WA">WA</option>
+                            <option value="SA">SA</option>
+                            <option value="TAS">TAS</option>
+                            <option value="ACT">ACT</option>
+                            <option value="NT">NT</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--text-dark); margin-bottom:0.4rem;" data-i18n="contact.enquiry.message">Message *</label>
+                        <textarea name="message" required rows="4" placeholder="Tell us about your enquiry..." style="width:100%; padding:0.75rem 1rem; border:1px solid #ddd; border-radius:8px; font-size:0.95rem; box-sizing:border-box; resize:vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background:var(--gold); color:var(--text-dark); padding:0.85rem 2rem; border:none; border-radius:8px; font-size:1rem; font-weight:700; cursor:pointer; transition:all 0.3s ease; margin-top:0.5rem;" data-i18n="contact.enquiry.submit">Submit</button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div style="text-align:center; margin-top:2rem;">
+                <span style="color:rgba(255,255,255,0.8);">✉️ </span>
+                <a href="mailto:info@myqueen.com.au" style="color:rgba(255,255,255,0.9); text-decoration:none;">info@myqueen.com.au</a>
             </div>
         </div>
     </section>
@@ -2137,6 +2193,18 @@
                 'contact.desc': 'Ready to scale your brand in Australia? Contact us to discuss partnership opportunities.',
                 'contact.info': 'Contact Information',
                 'contact.email': 'Email',
+                'contact.nsw': 'NSW Warehouse',
+                'contact.nsw.addr': '41 Roberts Road, Greenacre NSW 2190',
+                'contact.vic': 'VIC Warehouse',
+                'contact.vic.addr': '167-173 Westall Road, Clayton South VIC 3169',
+                'contact.enquiry.title': 'Enquire Today',
+                'contact.enquiry.desc': 'Tell us about your business needs and we\'ll get back to you shortly.',
+                'contact.enquiry.name': 'Name *',
+                'contact.enquiry.email': 'Email *',
+                'contact.enquiry.phone': 'Phone',
+                'contact.enquiry.state': 'State',
+                'contact.enquiry.message': 'Message *',
+                'contact.enquiry.submit': 'Submit',
                 'footer.desc': "Australia's leading Asian food distribution and brand operation platform. Home of Chewy brand. Building bridges between Asian brands and Australian consumers since 2015.",
                 'footer.quicklinks': 'Quick Links',
                 'footer.aboutus': 'About Us',
@@ -2222,6 +2290,18 @@
                 'contact.desc': '准备在澳大利亚拓展您的品牌？联系我们探讨合作机会。',
                 'contact.info': '联系方式',
                 'contact.email': '邮箱',
+                'contact.nsw': 'NSW仓库',
+                'contact.nsw.addr': '41 Roberts Road, Greenacre NSW 2190',
+                'contact.vic': 'VIC仓库',
+                'contact.vic.addr': '167-173 Westall Road, Clayton South VIC 3169',
+                'contact.enquiry.title': '立即咨询',
+                'contact.enquiry.desc': '请告诉我们您的需求，我们会尽快与您联系。',
+                'contact.enquiry.name': '姓名 *',
+                'contact.enquiry.email': '邮箱 *',
+                'contact.enquiry.phone': '电话',
+                'contact.enquiry.state': '所在州',
+                'contact.enquiry.message': '留言 *',
+                'contact.enquiry.submit': '提交',
                 'footer.desc': '澳大利亚领先的亚洲食品分销与品牌运营平台。Chewy 品牌缔造者。自2015年起，搭建亚洲品牌与澳大利亚消费者之间的桥梁。',
                 'footer.quicklinks': '快速链接',
                 'footer.aboutus': '关于我们',
